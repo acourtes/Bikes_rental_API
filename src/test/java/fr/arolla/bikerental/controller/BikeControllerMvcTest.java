@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(BikeController.class)
@@ -36,7 +36,7 @@ class BikeControllerMvcTest {
                         .get("/api/v1/bikes/{id}", bikeId)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.serialId").value(bikeId))
-                .andExpect(jsonPath("$.rent").value(false));
+                .andExpect(content().json("""
+                        {"serialId":1,"isRent":false}"""));
     }
 }
