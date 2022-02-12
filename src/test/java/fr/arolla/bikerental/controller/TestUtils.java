@@ -1,0 +1,18 @@
+package fr.arolla.bikerental.controller;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public final class TestUtils {
+
+    private TestUtils() {
+
+    }
+
+    public static String asJsonString(final Object obj) {
+        try {
+            return new ObjectMapper().writeValueAsString(obj);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
