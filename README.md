@@ -63,6 +63,8 @@ For this API version, we have these new needs :
   * If the station is in altitude, the user will have bonus
   * Ability to find near stations when one is full
 
+And there is also in change in the users API : the id will be a string and no more an integer
+
 ## V2 API development
 How can you do to do that by having just one code base and be able to improve the V2 in the future without being annoyed by V1 ?
 
